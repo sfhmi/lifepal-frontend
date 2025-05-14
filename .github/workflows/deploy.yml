@@ -42,10 +42,6 @@ jobs:
           push: true
           build-args: |
             NEXT_PUBLIC_API=${{ secrets.NEXT_PUBLIC_API }}
-            NEXT_PUBLIC_USER=${{ secrets.NEXT_PUBLIC_USER }}
-            NEXT_PUBLIC_PW=${{ secrets.NEXT_PUBLIC_PW }}
-            NEXT_PUBLIC_KEY=${{ secrets.NEXT_PUBLIC_KEY }}
-            NEXT_PUBLIC_IV=${{ secrets.NEXT_PUBLIC_IV }}
           tags: |
             ghcr.io/sfhmi/lifepal-frontend/web:latest
             ghcr.io/sfhmi/lifepal-frontend/web:${{ github.ref_name }}
