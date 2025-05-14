@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
+    "build": "npm run lint -- --fix && next build",
     "start": "next start",
-    "lint": "eslint --fix"
+    "lint": "eslint . --ext .ts,.tsx --fix"
   },
   "dependencies": {
     "@heroui/badge": "^2.2.12",

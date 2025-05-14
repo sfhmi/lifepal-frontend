@@ -1,11 +1,11 @@
-"use client"
-import { Card } from "@heroui/card"
-import { memo } from "react"
+"use client";
+import { Card } from "@heroui/card";
+import { memo } from "react";
 import { Skeleton } from "@heroui/skeleton";
 
 const CardProductSkeleton = (): React.JSX.Element => {
   return (
-    <Card shadow="none" className="w-[200px] space-y-5 p-0" radius="sm">
+    <Card className="w-[200px] space-y-5 p-0" radius="sm" shadow="none">
       <Skeleton className="rounded-lg">
         <div className="h-[150px] rounded-lg bg-default-300" />
       </Skeleton>
@@ -21,7 +21,7 @@ const CardProductSkeleton = (): React.JSX.Element => {
         </Skeleton>
       </div>
     </Card>
-  )
-}
+  );
+};
 
-export default memo(CardProductSkeleton)
+export default memo(CardProductSkeleton);

@@ -1,12 +1,12 @@
 import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
 import clsx from "clsx";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
+import { ToastProvider } from "@heroui/toast";
 
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
-import { NuqsAdapter } from 'nuqs/adapters/next/app'
 import Navbar from "@/components/global/navbar/navbar";
-import { ToastProvider } from "@heroui/toast";
 
 export const metadata: Metadata = {
   title: {
@@ -44,9 +44,7 @@ export default function RootLayout({
           <Navbar />
           <main className="container mx-auto max-w-7xl  px-6 flex-grow">
             <ToastProvider placement="top-right" />
-            <NuqsAdapter>
-              {children}
-            </NuqsAdapter>
+            <NuqsAdapter>{children}</NuqsAdapter>
           </main>
         </div>
       </body>
