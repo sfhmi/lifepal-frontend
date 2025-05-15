@@ -2,9 +2,9 @@
 import { Card, CardBody } from "@heroui/card";
 import { Suspense } from "react";
 
-import Filters from "@/components/producs/filters";
 import ListProducts from "@/components/producs/list-products";
 import API from "@/config/api";
+import SidebarFilter from "@/components/producs/sidebar-filter";
 
 export default async function Home() {
   const CTG_LIST: string[] = await API("products/category-list", "GET");
@@ -16,7 +16,7 @@ export default async function Home() {
           <Card className="sticky top-20">
             <CardBody>
               <Suspense>
-                <Filters ctg={CTG_LIST} />
+                <SidebarFilter ctg={CTG_LIST} />
               </Suspense>
             </CardBody>
           </Card>

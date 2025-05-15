@@ -26,7 +26,7 @@ const CardProduct = ({
           aria-label={item.title}
           className="w-full object-contain h-[150px] mb-4"
           classNames={{
-            wrapper: "mb-2",
+            wrapper: "mb-2 h-[150px]",
           }}
           height={150}
           loading="lazy"
@@ -45,9 +45,11 @@ const CardProduct = ({
             >
               ${(item.price * (1 - item.discountPercentage / 100)).toFixed(2)}
             </span>
-            <span className="text-default-500 text-xs line-through">
-              ${item.price}
-            </span>
+            {item.discountPercentage > 0 && (
+              <span className="text-default-500 text-xs line-through">
+                ${item.price}
+              </span>
+            )}
           </div>
           <div className="flex flex-row items-center gap-1">
             <Image

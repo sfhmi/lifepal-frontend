@@ -1,17 +1,15 @@
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
-import { CartProductInterface, Product } from "@/types/product";
+import { Product } from "@/types/product";
 
 interface cartStoreInterface {
-  cart: CartProductInterface[];
+  cart: Product[];
   addToCart: (item: Product) => void;
   removeItem: (id: string | number) => void;
 }
 
-const initialValue: {
-  cart: CartProductInterface[];
-} = {
+const initialValue = {
   cart: [],
 };
 
@@ -19,20 +17,11 @@ export const useProductStore = create<cartStoreInterface>()(
   persist(
     (set) => ({
       ...initialValue,
-
       addToCart: (data) =>
         set((state) => {
-          const item = {
-            id: data.id,
-            image: data.images[0],
-            title: data.title,
-            quantity: 1,
-            price: data.price,
-          };
-
-          if (state.cart.find((i) => i.id === item.id)) {
+          if (state.cart.find((i) => i.id === data.id)) {
             const newCart = state.cart.map((i) => {
-              if (i.id === item.id) {
+              if (i.id === data.id) {
                 return { ...i, quantity: i.quantity + 1 };
               } else {
                 return i;
@@ -45,7 +34,7 @@ export const useProductStore = create<cartStoreInterface>()(
           }
 
           return {
-            cart: [...state.cart, item],
+            cart: [...state.cart, { ...data, quantity: 1 }],
           };
         }),
       removeItem: (id) =>

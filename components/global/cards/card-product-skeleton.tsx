@@ -5,9 +5,14 @@ import { Skeleton } from "@heroui/skeleton";
 
 const CardProductSkeleton = (): React.JSX.Element => {
   return (
-    <Card className="w-[200px] space-y-5 p-0" radius="sm" shadow="none">
-      <Skeleton className="rounded-lg">
-        <div className="h-[150px] rounded-lg bg-default-300" />
+    <Card className="w-full space-y-5 p-0" radius="sm" shadow="none">
+      <Skeleton
+        className="rounded-lg"
+        classNames={{
+          base: "w-full",
+        }}
+      >
+        <div className="h-[150px] w-full rounded-lg bg-default-300" />
       </Skeleton>
       <div className="space-y-1">
         <Skeleton className="w-3/5 rounded-lg">

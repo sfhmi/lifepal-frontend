@@ -1,10 +1,9 @@
 "use client";
-
 import { Button } from "@heroui/button";
 import { Image } from "@heroui/image";
 import { Modal, ModalBody, ModalContent } from "@heroui/modal";
 import { addToast } from "@heroui/toast";
-import { memo } from "react";
+import { memo, useMemo } from "react";
 
 import { Product } from "@/types/product";
 import { useProductStore } from "@/stores/products";
@@ -20,8 +19,23 @@ const ModalProduct = ({
 }) => {
   const { addToCart } = useProductStore();
 
+  const isDiscountPrice = useMemo(() => {
+    const price = data?.price || 0;
+    const discount = data?.discountPercentage || 0;
+
+    if (discount !== 0) {
+      return (price * (1 - discount / 100)).toFixed(2);
+    } else {
+      return price;
+    }
+  }, [data]);
+
   return (
     <Modal
+      classNames={{
+        closeButton: "z-30",
+        wrapper: "[&>.section]:h-[100dvh]",
+      }}
       isOpen={isOpen}
       scrollBehavior="inside"
       size="4xl"
@@ -32,12 +46,13 @@ const ModalProduct = ({
           <Image
             alt={data?.title}
             classNames={{
-              img: "object-contain lg:w-full lg:h-[500px] h-[300px]",
-              wrapper: "lg:w-full  lg:h-auto h-[300px]",
+              img: "object-contain lg:w-full w-full lg:h-[500px] h-[300px] rounded-tr-2xl rounded-tl-2xl",
+              wrapper:
+                "lg:w-full  lg:h-auto h-[300px] w-full  rounded-tr-2xl rounded-tl-2xl",
             }}
             radius="none"
             src={data?.images[0]}
-            width={500}
+            width={"100%"}
           />
           <div className="flex flex-col justify-between h-full p-4">
             <div className="flex flex-col gap-2 mb-3">
@@ -59,7 +74,17 @@ const ModalProduct = ({
                   <span>{data?.rating}</span>
                 </div>
               </div>
-              <b className="text-xl">${data?.price}</b>
+              <div className="flex flex-row gap-1">
+                <b
+                  aria-label="price"
+                  className="text-start text-xl font-bold leading-normal line-clamp-2"
+                >
+                  ${isDiscountPrice}
+                </b>
+                <span className="text-default-500 text-sm line-through">
+                  ${data?.price}
+                </span>
+              </div>
 
               <article>{data?.description}</article>
             </div>

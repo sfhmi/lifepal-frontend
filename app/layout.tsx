@@ -3,6 +3,8 @@ import { Metadata, Viewport } from "next";
 import clsx from "clsx";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { ToastProvider } from "@heroui/toast";
+import { HeroUIProvider } from "@heroui/system";
+import { Suspense } from "react";
 
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
@@ -40,13 +42,17 @@ export default function RootLayout({
           fontSans.variable,
         )}
       >
-        <div className="relative flex flex-col">
-          <Navbar />
-          <main className="container mx-auto max-w-7xl  px-6 flex-grow">
-            <ToastProvider placement="top-right" />
-            <NuqsAdapter>{children}</NuqsAdapter>
-          </main>
-        </div>
+        <HeroUIProvider>
+          <div className="relative flex flex-col">
+            <Suspense>
+              <Navbar />
+            </Suspense>
+            <main className="container mx-auto max-w-7xl  px-6 flex-grow">
+              <ToastProvider placement="bottom-right" toastOffset={10} />
+              <NuqsAdapter>{children}</NuqsAdapter>
+            </main>
+          </div>
+        </HeroUIProvider>
       </body>
     </html>
   );

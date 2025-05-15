@@ -1,53 +1,81 @@
-# Next.js & HeroUI Template
+## Disclaimer
+Dear Engineers I couldn't find the documentation for filter with pricing and rating, so the is handled from front-end side
 
-This is a template for creating applications using Next.js 14 (app directory) and HeroUI (v2).
+## Features
 
-[Try it on CodeSandbox](https://githubbox.com/heroui-inc/heroui/next-app-template)
+- Product listing with filtering (category, price, rating, search, sorting)
+- Product detail modal
+- Add to cart and cart modal with quantity management
+- Persistent cart using local
+- Responsive design using Tailwind CSS
+- Theme switching (light/dark)
+- Built with Next.js App Router and React Server Components
 
-## Technologies Used
+## Tech Stack
 
-- [Next.js 14](https://nextjs.org/docs/getting-started)
-- [HeroUI v2](https://heroui.com/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Tailwind Variants](https://tailwind-variants.org)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Framer Motion](https://www.framer.com/motion/)
-- [next-themes](https://github.com/pacocoursey/next-themes)
+- [Next.js](https://nextjs.org/) (JS Framework)
+- [HeroUI](https://heroui.com/) (UI components)
+- [Zustand](https://zustand-demo.pmnd.rs/) (state management)
+- [Tailwind CSS](https://tailwindcss.com/) (sytles)
+- [TypeScript](https://www.typescriptlang.org/) )
+- [Docker](https://www.docker.com/) (containerization)
+- [Github Actions](https://docs.github.com/en/actions/about-github-actions/understanding-github-actions) (CI/CD)
 
-## How to Use
 
-### Use the template with create-next-app
+### Prerequisites
 
-To create a new project based on this template using `create-next-app`, run the following command:
+- Node.js (v18 or above)
+- npm, yarn, pnpm or bun
 
-```bash
-npx create-next-app -e https://github.com/heroui-inc/next-app-template
-```
+### Installation
 
-### Install dependencies
+1. Clone the repository:
 
-You can use one of them `npm`, `yarn`, `pnpm`, `bun`, Example using `npm`:
+    ```bash
+    git clone https://github.com/your-username/lifepal-frontend-test.git
+    cd lifepal-frontend-test
+    ```
 
-```bash
-npm install
-```
+2. Install dependencies:
 
-### Run the development server
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
 
-```bash
-npm run dev
-```
+3. Run the development server:
 
-### Setup pnpm (optional)
+    ```bash
+    npm run dev
+    # or
+    yarn dev
+    ```
 
-If you are using `pnpm`, you need to add the following code to your `.npmrc` file:
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-```bash
-public-hoist-pattern[]=*@heroui/*
-```
+## Project Structure
 
-After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
+- `app/` - Next.js app directory (pages, layout, providers)
+- `components/` - Reusable UI components (cards, modals, navbar, filters)
+- `stores/` - Zustand stores for cart and products
+- `types/` - TypeScript type definitions
+- `config/` - Site and API configuration
+- `public/` - Static assets (icons, images)
+- `styles/` - Global styles (Tailwind CSS)
+
+## Customization
+
+- **Theme**: Switch between light and dark mode using the theme switcher in the UI.
+- **Product Data**: The product API is configured in `config/api.ts` (not shown here). Adjust endpoints as needed.
+- **UI**: Components use HeroUI and Tailwind for styling. You can customize the look and feel in the respective component files.
+
+## Scripts
+
+- `dev` - Start the development server
+- `build` - Build the application for production
+- `start` - Start the production server
 
 ## License
 
-Licensed under the [MIT license](https://github.com/heroui-inc/next-app-template/blob/main/LICENSE).
+This project is for demonstration and testing purposes.

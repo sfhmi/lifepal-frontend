@@ -10,12 +10,13 @@ import { Fragment, memo } from "react";
 
 export const MAX_VALUE_RANGE: number = 100000;
 const RATINGS: number[] = [1, 2, 3, 4, 5];
-const Filters = ({ ctg }: { ctg: string[] }): React.JSX.Element => {
+const SidebarFilter = ({ ctg }: { ctg: string[] }): React.JSX.Element => {
   const [rating, setRatings] = useQueryState(
     "r",
     parseAsInteger.withDefault(0),
   );
   const [category, setCategory] = useQueryState("ctg");
+  const [_, setSearch] = useQueryState("q");
   const [mP, setMP] = useQueryState(
     "mp",
     parseAsInteger.withDefault(MAX_VALUE_RANGE),
@@ -23,21 +24,21 @@ const Filters = ({ ctg }: { ctg: string[] }): React.JSX.Element => {
 
   return (
     <Fragment>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 p-3">
         <Select
+          fullWidth
           aria-label="category"
           classNames={{
-            base: "max-w-xs",
             trigger: "min-h-12 py-2",
             value: "capitalize",
             label: "text-sm",
           }}
-          label="Category"
-          labelPlacement="outside"
           placeholder="Choose a category"
           radius="sm"
+          selectedKeys={[category as string]}
           variant="bordered"
           onChange={(e) => {
+            setSearch(null);
             if (!e.target.value) {
               setCategory(null);
 
@@ -56,7 +57,7 @@ const Filters = ({ ctg }: { ctg: string[] }): React.JSX.Element => {
         <hr />
         <Slider
           aria-label="price-range"
-          className="max-w-md"
+          className="w-full"
           classNames={{
             label: "text-sm",
           }}
@@ -66,7 +67,7 @@ const Filters = ({ ctg }: { ctg: string[] }): React.JSX.Element => {
             currency: "USD",
             minimumFractionDigits: 2,
           }}
-          label="Price Range"
+          label="$0"
           maxValue={MAX_VALUE_RANGE}
           showTooltip={true}
           size="sm"
@@ -126,4 +127,4 @@ const Filters = ({ ctg }: { ctg: string[] }): React.JSX.Element => {
   );
 };
 
-export default memo(Filters);
+export default memo(SidebarFilter);
