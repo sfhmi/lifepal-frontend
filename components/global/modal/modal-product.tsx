@@ -46,9 +46,9 @@ const ModalProduct = ({
           <Image
             alt={data?.title}
             classNames={{
-              img: "object-contain lg:w-full w-full lg:h-[500px] h-[300px] rounded-tr-2xl rounded-tl-2xl",
+              img: "object-contain lg:w-full w-full lg:h-[500px] h-[300px]",
               wrapper:
-                "lg:w-full  lg:h-auto h-[300px] w-full  rounded-tr-2xl rounded-tl-2xl",
+                "lg:w-full  lg:h-auto h-[300px] w-full  lg:rounded-tr-0 rounded-tr-2xl rounded-tl-2xl lg:rounded-bl-2xl",
             }}
             radius="none"
             src={data?.images[0]}
@@ -57,13 +57,13 @@ const ModalProduct = ({
           <div className="flex flex-col justify-between h-full p-4">
             <div className="flex flex-col gap-2 mb-3">
               <div className="flex flex-col">
-                <h2 className="text-2xl font-bold">{data?.title}</h2>
-                <span className="text-default-500 capitalize">
+                <h2 className="lg:text-2xl text-md font-bold">{data?.title}</h2>
+                <span className="text-default-500 lg:text-md text-sm capitalize">
                   {data?.category.replaceAll("-", " ")}
                 </span>
               </div>
               <div className="flex flex-row gap-2">
-                <span>Stock: {data?.stock}</span>
+                <span className="lg:text-md text-sm ">Stock: {data?.stock}</span>
                 <div className="flex flex-orw">
                   <Image
                     alt={data?.title}
@@ -71,7 +71,7 @@ const ModalProduct = ({
                     src={"/icons/icon-star.svg"}
                     width={25}
                   />
-                  <span>{data?.rating}</span>
+                  <span className="lg:text-md text-sm ">{data?.rating}</span>
                 </div>
               </div>
               <div className="flex flex-row gap-1">
@@ -86,11 +86,11 @@ const ModalProduct = ({
                 </span>
               </div>
 
-              <article>{data?.description}</article>
+              <article className="lg:text-md text-sm ">{data?.description}</article>
             </div>
             <Button
               fullWidth
-              className="mt-auto"
+              className="mt-auto sticky bottom-4 z-10"
               color="primary"
               radius="sm"
               size="lg"
