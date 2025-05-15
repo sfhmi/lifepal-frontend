@@ -6,13 +6,12 @@ import { Badge } from "@heroui/badge";
 import { useDisclosure } from "@heroui/modal";
 import { memo, useEffect, useMemo, useState } from "react";
 import dynamic from "next/dynamic";
-
-import ModalCart from "../modal/modal-cart";
-
 import { useProductStore } from "@/stores/products";
 import { Product } from "@/types/product";
 import { CartIcon } from "@/components/icons";
+
 const ThemeSwitcher = dynamic(() => import("./theme-switcher"), { ssr: false });
+const ModalCart = dynamic(() => import("../modal/modal-cart"), { ssr: false });
 
 const Navbar = () => {
   const { isOpen, onOpenChange } = useDisclosure();

@@ -8,7 +8,7 @@ const SORTBY = ["price", "rating"];
 const SORT_MODE = ["asc", "desc"];
 
 const Filter = () => {
-  const [_, setSearch] = useQueryState("q");
+  const [search, setSearch] = useQueryState("q");
   const [sortBy, setSortBy] = useQueryState("srt", { defaultValue: "price" });
   const [sortMode, setSortMode] = useQueryState("srtm", {
     defaultValue: "asc",

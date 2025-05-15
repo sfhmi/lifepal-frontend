@@ -79,3 +79,18 @@ Dear Engineers I couldn't find the documentation for filter with pricing and rat
 ## License
 
 This project is for demonstration and testing purposes.
+
+
+## Core Web Vitals Optimization
+
+This project is optimized for Core Web Vitals to ensure a fast, responsive, and user-friendly experience. Here are the key strategies and techniques used:
+
+- **Image Optimization**: Uses Next.js built-in image optimization and caching. Images are loaded with proper sizing and lazy loading where appropriate.
+- **Font Optimization**: The `optimizeFonts` experimental flag is enabled in `next.config.js` to reduce font loading times.
+- **Efficient Code Splitting**: Dynamic imports (e.g., for the theme switcher) are used to reduce initial bundle size and improve load performance.
+- **Server-Side Rendering (SSR) & Static Generation**: Leverages Next.js App Router and React Server Components for fast server-side rendering and static generation where possible.
+- **Minimized JavaScript**: Production builds are optimized and minified automatically by Next.js.
+- **Responsive Design**: Uses Tailwind CSS for responsive layouts, ensuring fast rendering on all devices.
+- **Caching & Compression**: HTTP compression is enabled in `next.config.js`, and static assets are cached for faster repeat visits.
+- **Accessibility & UX**: Follows accessibility best practices and uses semantic HTML to improve user experience and interactivity metrics.
+- **Performance Budgets**: Linting and build scripts help maintain code quality and performance standards.

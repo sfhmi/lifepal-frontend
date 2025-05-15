@@ -6,18 +6,58 @@ import { ToastProvider } from "@heroui/toast";
 import { HeroUIProvider } from "@heroui/system";
 import { Suspense } from "react";
 
-import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import Navbar from "@/components/global/navbar/navbar";
 
 export const metadata: Metadata = {
-  title: {
-    default: siteConfig.name,
-    template: `%s - ${siteConfig.name}`,
-  },
-  description: siteConfig.description,
+  title: "LifePal",
+  description:
+    "Promo asuransi mobil dari sejumlah perusahaan asuransi terbaik di Indonesia. Tersedia jenis polis All Risk dan TLO. Cek sekarang!",
+  keywords: [
+    "Asurani",
+    "Mobil",
+    "Insurance",
+  ],
   icons: {
-    icon: "/favicon.ico",
+    icon: "https://blog-media.lifepal.co.id/app/uploads/sites/3/2020/01/17141437/lifepal-logo.png",
+    shortcut: "https://blog-media.lifepal.co.id/app/uploads/sites/3/2020/01/17141437/lifepal-logo.png",
+    apple: "https://blog-media.lifepal.co.id/app/uploads/sites/3/2020/01/17141437/lifepal-logo.png",
+    other: {
+      rel: "apple-touch-icon-precomposed",
+      url: "https://blog-media.lifepal.co.id/app/uploads/sites/3/2020/01/17141437/lifepal-logo.png",
+    },
+  },
+
+  openGraph: {
+    title: "Lifepal",
+    description:
+      "Inisiasi Untuk Menciptakan Generasi Indonesia Yang Bersih dan Sehat, Serta Bebas Dari Stunting",
+    url: "https://lifepal-frontend.netlify.app",
+    siteName: "Lifepal",
+    images: [
+      {
+        url: "https://blog-media.lifepal.co.id/app/uploads/sites/3/2020/01/17141437/lifepal-logo.png",
+        width: 1200,
+        height: 630,
+        alt: "Lifepal ",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Lifepal",
+    description:
+      "Promo asuransi mobil dari sejumlah perusahaan asuransi terbaik di Indonesia. Tersedia jenis polis All Risk dan TLO. Cek sekarang!",
+    images: ["https://blog-media.lifepal.co.id/app/uploads/sites/3/2020/01/17141437/lifepal-logo.png"],
+  },
+  alternates: {
+    canonical: "https://lifepal-frontend.netlify.app",
+    languages: {
+      "en-US": "https://lifepal-frontend.netlify.app",
+      "id-ID": "https://lifepal-frontend.netlify.app",
+    },
   },
 };
 

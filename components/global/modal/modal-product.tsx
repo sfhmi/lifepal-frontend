@@ -63,7 +63,9 @@ const ModalProduct = ({
                 </span>
               </div>
               <div className="flex flex-row gap-2">
-                <span className="lg:text-md text-sm ">Stock: {data?.stock}</span>
+                <span className="lg:text-md text-sm ">
+                  Stock: {data?.stock}
+                </span>
                 <div className="flex flex-orw">
                   <Image
                     alt={data?.title}
@@ -86,7 +88,9 @@ const ModalProduct = ({
                 </span>
               </div>
 
-              <article className="lg:text-md text-sm ">{data?.description}</article>
+              <article className="lg:text-md text-sm ">
+                {data?.description}
+              </article>
             </div>
             <Button
               fullWidth

@@ -37,7 +37,7 @@ const ModalCart = ({
       <ModalContent>
         <ModalHeader>Cart</ModalHeader>
         <ModalBody className="p-4 min-h-[300px]">
-          {cart && (
+          {cart.length > 0 && (
             <Fragment>
               <div className="flex flex-col gap-3 h-[300px] overflow-y-scroll">
                 {cart?.map((item: Product) => (
@@ -108,7 +108,7 @@ const ModalCart = ({
               </div>
             </Fragment>
           )}
-          {!cart && (
+          {cart.length == 0 && (
             <Fragment>
               <div className="flex flex-col items-center justify-center my-auto gap-3">
                 <span>Your cart is empty</span>

@@ -41,7 +41,6 @@ const SidebarFilter = ({ ctg }: { ctg: string[] }): React.JSX.Element => {
             setSearch(null);
             if (!e.target.value) {
               setCategory(null);
-
               return;
             }
             setCategory(e.target.value);
