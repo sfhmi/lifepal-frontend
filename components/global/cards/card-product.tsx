@@ -37,8 +37,11 @@ const CardProduct = ({
           width="100%"
         />
         <div className="flex flex-col gap-2">
-          <span className="text-default-500 text-left text-xs">
+          <span className="text-left text-sm">
             {item.title}
+          </span>
+          <span className="text-default-500 text-left text-xs">
+            {item.category}
           </span>
           <div className="flex flex-row items-end gap-1">
             <span
