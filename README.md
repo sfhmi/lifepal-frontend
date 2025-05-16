@@ -1,5 +1,5 @@
 ## Disclaimer
-Dear Engineers I couldn't find the documentation for filter with pricing and rating, so the is handled from front-end side
+Dear Engineers I couldn't find the documentation for filter with pricing and rating, so the is handled from front-end side also for the unit testing I couldn't create test for filtering since i'm using nuqs for creating query params that somehow gives error with jest unit testing.
 
 ## Features
 
