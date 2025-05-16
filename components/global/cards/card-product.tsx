@@ -31,15 +31,13 @@ const CardProduct = ({
             wrapper: "mb-2 h-[150px]",
           }}
           height={150}
-          loading={itemId < 12 ? 'lazy' : 'eager'}
+          loading={itemId < 12 ? "lazy" : "eager"}
           radius="sm"
           src={item.images[0]}
           width="100%"
         />
         <div className="flex flex-col gap-2">
-          <span className="text-left text-sm">
-            {item.title}
-          </span>
+          <span className="text-left text-sm">{item.title}</span>
           <span className="text-default-500 text-left text-xs">
             {item.category}
           </span>
@@ -62,7 +60,6 @@ const CardProduct = ({
               aria-label="stars"
               className="w-3 h-3"
               src="/icons/icon-star.svg"
-
             />
             <span className="text-default-500 text-left text-xs capitalize">
               {item.rating}

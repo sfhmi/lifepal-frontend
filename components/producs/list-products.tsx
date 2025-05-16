@@ -11,6 +11,7 @@ import {
 import useSWR from "swr";
 // import { Select, SelectItem } from "@heroui/select";
 import { useDisclosure } from "@heroui/modal";
+import dynamic from "next/dynamic";
 
 import CardProduct from "../global/cards/card-product";
 import CardProductSkeleton from "../global/cards/card-product-skeleton";
@@ -19,16 +20,14 @@ import Filter from "./filter";
 
 import { Product } from "@/types/product";
 import API from "@/config/api";
-import dynamic from "next/dynamic";
 // import { Input } from "@heroui/input";
 
 // const SORTBY = ["price", "rating"];
 // const SORT_MODE = ["asc", "desc"];
 
-const ModalProduct = dynamic(
-  () => import("../global/modal/modal-product"),
-  { ssr: false },
-);
+const ModalProduct = dynamic(() => import("../global/modal/modal-product"), {
+  ssr: false,
+});
 
 const ListProducts = (): React.JSX.Element => {
   const [category] = useQueryState("ctg");
@@ -83,7 +82,13 @@ const ListProducts = (): React.JSX.Element => {
     (data: Product[]) => {
       const filtered = data.filter((prd) => {
         if (mP && prd.price > mP) return false;
-        if (rating && rating > 0 && (prd.rating < rating || prd.rating >= rating + 1)) return false;
+        if (
+          rating &&
+          rating > 0 &&
+          (prd.rating < rating || prd.rating >= rating + 1)
+        )
+          return false;
+
         return true;
       });
 
@@ -125,9 +130,9 @@ const ListProducts = (): React.JSX.Element => {
                 {products?.map((item: Product, idx: number) => (
                   <CardProduct
                     key={idx}
-                    itemId={idx}
                     clickHandle={handleCheckDetail}
                     item={item}
+                    itemId={idx}
                   />
                 ))}
               </Fragment>

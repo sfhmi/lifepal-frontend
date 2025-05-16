@@ -6,6 +6,7 @@ import { Badge } from "@heroui/badge";
 import { useDisclosure } from "@heroui/modal";
 import { memo, useEffect, useMemo, useState } from "react";
 import dynamic from "next/dynamic";
+
 import { useProductStore } from "@/stores/products";
 import { Product } from "@/types/product";
 import { CartIcon } from "@/components/icons";

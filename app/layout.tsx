@@ -13,15 +13,13 @@ export const metadata: Metadata = {
   title: "LifePal",
   description:
     "Promo asuransi mobil dari sejumlah perusahaan asuransi terbaik di Indonesia. Tersedia jenis polis All Risk dan TLO. Cek sekarang!",
-  keywords: [
-    "Asurani",
-    "Mobil",
-    "Insurance",
-  ],
+  keywords: ["Asurani", "Mobil", "Insurance"],
   icons: {
     icon: "https://blog-media.lifepal.co.id/app/uploads/sites/3/2020/01/17141437/lifepal-logo.png",
-    shortcut: "https://blog-media.lifepal.co.id/app/uploads/sites/3/2020/01/17141437/lifepal-logo.png",
-    apple: "https://blog-media.lifepal.co.id/app/uploads/sites/3/2020/01/17141437/lifepal-logo.png",
+    shortcut:
+      "https://blog-media.lifepal.co.id/app/uploads/sites/3/2020/01/17141437/lifepal-logo.png",
+    apple:
+      "https://blog-media.lifepal.co.id/app/uploads/sites/3/2020/01/17141437/lifepal-logo.png",
     other: {
       rel: "apple-touch-icon-precomposed",
       url: "https://blog-media.lifepal.co.id/app/uploads/sites/3/2020/01/17141437/lifepal-logo.png",
@@ -50,7 +48,9 @@ export const metadata: Metadata = {
     title: "Lifepal",
     description:
       "Promo asuransi mobil dari sejumlah perusahaan asuransi terbaik di Indonesia. Tersedia jenis polis All Risk dan TLO. Cek sekarang!",
-    images: ["https://blog-media.lifepal.co.id/app/uploads/sites/3/2020/01/17141437/lifepal-logo.png"],
+    images: [
+      "https://blog-media.lifepal.co.id/app/uploads/sites/3/2020/01/17141437/lifepal-logo.png",
+    ],
   },
   alternates: {
     canonical: "https://lifepal-frontend.netlify.app",
